@@ -1,5 +1,5 @@
 # readPDF_COVID-19_SS
-Lee el archivo PDF que reporta la Secretaria de Salud de México y lo transforma en una salida JSON y un archivo CSV
+Lee el archivo PDF que reporta la Secretaria de Salud de México y lo transforma en una salida JSON o un archivo CSV
 
 ejemplo: 
 
