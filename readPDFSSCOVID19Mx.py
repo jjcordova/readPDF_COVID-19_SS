@@ -1,3 +1,11 @@
+# Archivo: readPDFSSCOVID19Mx.py
+# Autor: Juan Jose Cordova
+# email: chechino@gmail.com
+# twitter: @che_chino
+# Fecha: 17/03/2020
+# Descripción: Este programa tiene las funciones necesarias para transcribir el reporte de casos positivos de COVID19 que reporta la secretaria de salud
+# el archivo PDF del reporte se transforma en un archivo JSO y en un archivo CSV
+
 import pdftotext
 import json
 import re
@@ -5,6 +13,10 @@ import csv
 from urllib.request import urlopen
 
 def buildArrayCOVID(LISTA_COVID):
+    '''Recibe un renglon del archivo PDF y lo separa en las columnas que requerimos
+    | NoCaso | Estado | Sexo | Edad | Fecha de Diagnostico | Método de Identificación | Procedencia | Fecha de Llegada a México |
+    la función regresa un arreglo'''
+
     CASO = LISTA_COVID[0]
     FECHA_LL = LISTA_COVID[-1]
     ESTADO = LISTA_COVID[1]    
@@ -51,6 +63,9 @@ def buildArrayCOVID(LISTA_COVID):
 
 
 def buildDicCOVID(LISTA_COVID):
+    '''Recibe un renglon del archivo PDF y lo separa en las columnas que requerimos
+    | NoCaso | Estado | Sexo | Edad | Fecha de Diagnostico | Método de Identificación | Procedencia | Fecha de Llegada a México |
+    la función regresa un diccionario'''    
     CASO = LISTA_COVID[0]
     FECHA_LL = LISTA_COVID[-1]
     ESTADO = LISTA_COVID[1]    
@@ -105,6 +120,8 @@ def buildDicCOVID(LISTA_COVID):
 
 
 def PDFCOVIDtoList(URL):
+    '''Recibe el archivo PDF con el reporte positivo de enfermos de COVID19 y 
+    regresa una arreglo de listas'''
     pdf = pdftotext.PDF(URL)
     text_data= pdf[0].split('\n')
     temp_data = []
@@ -119,6 +136,8 @@ def PDFCOVIDtoList(URL):
 
 
 def PDFCOVIDtoJSON(URL):
+    '''Recibe el archivo PDF con el reporte positivo de enfermos de COVID19 y 
+    regresa una objeto JSON'''    
     pdf = pdftotext.PDF(URL)
     text_data= pdf[0].split('\n')
     temp_data = [ s.lstrip() for s in text_data[8].split() if s !='']
