@@ -17,3 +17,7 @@ with open('COVID19Mx.csv', 'w', newline='') as myfile:
         wr.writerow(temp_data[i])      
 ```
 
+Se obtiene un archivo con las columnas
+
+| NoCaso | Estado | Sexo | Edad | Fecha de Diagnóstico | Método de Identificación | Procedencia | Fecha de Llegada a México |
+|--------|--------|------|------|----------------------|--------------------------|-------------|---------------------------|
