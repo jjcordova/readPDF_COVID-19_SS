@@ -1,7 +1,8 @@
 from readPDFSSCOVID19Mx import PDFCOVIDtoList, PDFCOVIDtoList  
+from downloadPDFCOVID19Mx import downloadPDFCOVID19Mx
 import csv
 
-URL_COVID_MX = "https://www.gob.mx/cms/uploads/attachment/file/541580/Tabla_casos_positivos_resultado_InDRE_2020.03.16.pdf"
+URL_COVID_MX = downloadPDFCOVID19Mx()
 temp_data = PDFCOVIDtoList(URL_COVID_MX)
 
 with open('COVID19Mx.csv', 'w', newline='') as myfile:

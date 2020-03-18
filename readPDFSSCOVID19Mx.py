@@ -105,8 +105,7 @@ def buildDicCOVID(LISTA_COVID):
 
 
 def PDFCOVIDtoList(URL):
-    f = urlopen(URL)
-    pdf = pdftotext.PDF(f)
+    pdf = pdftotext.PDF(URL)
     text_data= pdf[0].split('\n')
     temp_data = []
     temp_data.append(buildArrayCOVID([ s.lstrip() for s in text_data[8].split() if s !='']))
@@ -120,8 +119,7 @@ def PDFCOVIDtoList(URL):
 
 
 def PDFCOVIDtoJSON(URL):
-    f = urlopen(URL)
-    pdf = pdftotext.PDF(f)
+    pdf = pdftotext.PDF(URL)
     text_data= pdf[0].split('\n')
     temp_data = [ s.lstrip() for s in text_data[8].split() if s !='']
     temp_data = buildDicCOVID(temp_data)
