@@ -9,5 +9,6 @@ Y transformamos el archivo PDF salida JSON o un archivo CSV
 ejemplo: 
 
 URL_COVID_MX = downloadPDFCOVID19Mx()
+
 temp_data = PDFCOVIDtoList(URL_COVID_MX)
 
