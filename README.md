@@ -21,3 +21,5 @@ Se obtiene un archivo con las columnas
 
 | NoCaso | Estado | Sexo | Edad | Fecha de Diagnóstico | Método de Identificación | Procedencia | Fecha de Llegada a México |
 |--------|--------|------|------|----------------------|--------------------------|-------------|---------------------------|
+
+Aquí pueden descargar el archivo [COVID19Mx.csv](https://github.com/jjcordova/readPDF_COVID-19_SS/blob/master/COVID19Mx.csv)
