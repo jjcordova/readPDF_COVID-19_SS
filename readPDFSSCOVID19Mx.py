@@ -128,13 +128,15 @@ def PDFCOVIDtoList(URL):
         text_data= pdf[j].split('\n')
         if j==0:            
             temp_data = []
-            for i in range(6,52):
+            for i in range(6,51):
                 temp_data.append(buildArrayCOVID([ s.lstrip() for s in text_data[i].split() if s !='']))
-        else:
-            for l in range(0,len(text_data)-5):
+        elif j==1:
+            for l in range(0,53):
                 temp_data.append(buildArrayCOVID([ s.lstrip() for s in text_data[l].split() if s !='']))
+        elif j==2:
+            for l in range(0,18):
+                temp_data.append(buildArrayCOVID([ s.lstrip() for s in text_data[l].split() if s !='']))                
     return temp_data
-
 
 def PDFCOVIDtoJSON(URL):
     '''Recibe el archivo PDF con el reporte positivo de enfermos de COVID19 y 
