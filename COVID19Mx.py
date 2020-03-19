@@ -1,4 +1,4 @@
-from readPDFSSCOVID19Mx import PDFCOVIDtoList, PDFCOVIDtoList  
+from readPDFSSCOVID19Mx import PDFCOVIDtoList
 from downloadPDFCOVID19Mx import downloadPDFCOVID19Mx
 import csv
 

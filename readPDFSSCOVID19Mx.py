@@ -142,19 +142,19 @@ def PDFCOVIDtoJSON(URL):
     '''Recibe el archivo PDF con el reporte positivo de enfermos de COVID19 y 
     regresa una objeto JSON'''    
     pdf = pdftotext.PDF(URL)
-    text_data= pdf[0].split('\n')
-    temp_data = [ s.lstrip() for s in text_data[6].split() if s !='']
-    temp_data = buildDicCOVID(temp_data)
-    JSON_COVID_19_Mx = {"COVID_19_MX":[temp_data]} 
-
-    for i in range(7,52):
-        temp_data = [ s.lstrip() for s in text_data[i].split() if s !='']
-        JSON_COVID_19_Mx['COVID_19_MX'].append(buildArrayCOVID(temp_data))
-
-    for j in range(1,len(pdf)-1):
+    k=len(pdf)
+    for j in range(0,k):
         text_data= pdf[j].split('\n')
-        for i in range(0, len(text_data)):
-            temp_data = [ s.lstrip() for s in text_data[i].split() if s !='']
-            JSON_COVID_19_Mx['COVID_19_MX'].append(buildArrayCOVID(temp_data))
-
+        if j==0:            
+            for i in range(6,51):
+                temp_data = buildDicCOVID([ s.lstrip() for s in text_data[i].split() if s !=''])
+                JSON_COVID_19_Mx = {"COVID_19_MX":[temp_data]}
+        elif j==1:
+            for l in range(0,53):
+                temp_data = buildDicCOVID([ s.lstrip() for s in text_data[i].split() if s !=''])
+                JSON_COVID_19_Mx = {"COVID_19_MX":[temp_data]}
+        elif j==2:
+            for l in range(0,18):
+                temp_data = buildDicCOVID([ s.lstrip() for s in text_data[l].split() if s !=''])
+                JSON_COVID_19_Mx = {"COVID_19_MX":[temp_data]}              
     return json.dumps(JSON_COVID_19_Mx).encode('utf8')   
