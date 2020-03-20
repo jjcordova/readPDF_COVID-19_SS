@@ -12,10 +12,10 @@ import re
 
 def downloadPDFCOVID19Mx():
     '''Realiza scraping del portal de la secreataria de salud
-    https://www.gob.mx/salud/documentos/nuevo-coronavirus-2019-ncov-comunicado-tecnico-diario
+    https://www.gob.mx/salud/documentos/coronavirus-covid-19-comunicado-tecnico-diario-238449
     y busca el enlace al archivo PDF basado en la palabra 'positivo' y regresa el archivo PDF
     al que se hace referencia'''
-    html = urlopen('https://www.gob.mx/salud/documentos/nuevo-coronavirus-2019-ncov-comunicado-tecnico-diario')
+    html = urlopen('https://www.gob.mx/salud/documentos/coronavirus-covid-19-comunicado-tecnico-diario-238449')
     bs = BeautifulSoup(html, 'html.parser')
     images = bs.find_all('a', {'href':re.compile('^(/cms/uploads/)((?!:).)*$')})
     listGamaIFM = [image['href'] for image in images if image['href'].find('positivos') != -1]
