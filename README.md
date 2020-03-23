@@ -2,7 +2,7 @@
 
 Con Scraping se lee el archivo PDF que reporta la Secretaria de Salud de México en el portal:
 
-https://www.gob.mx/salud/documentos/nuevo-coronavirus-2019-ncov-comunicado-tecnico-diario
+https://www.gob.mx/salud/documentos/coronavirus-covid-19-comunicado-tecnico-diario-238449
 
 Y transformamos el archivo PDF salida JSON o un archivo CSV
 
